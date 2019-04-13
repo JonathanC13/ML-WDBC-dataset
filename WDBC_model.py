@@ -39,7 +39,7 @@ dataset = pandas.read_csv(url, header=None);    #Read a comma-separated values (
 
 ResultDF = dataset[0];  # Copy a list of the result labelled attribute.
 
-new_dataset = dataset.drop([0], axis=1); # copy the dataframe withouth the labelled attribute
+new_dataset = dataset.drop([0], axis=1); # copy the dataframe without the labelled the attribute
 cols_len = len(list(new_dataset.columns.values));
 #print(cols_len);
 # have to label attributes for plots to work, so just number
@@ -64,7 +64,7 @@ print("\n");
 
 #3.4 class distribution
 print("Class distribution of the labelled attribute");
-print(dataset.groupby(dataset[0]).size()); # group the instances based on a specified column and get the size.
+print(dataset.groupby(dataset[0]).size());              # group the instances based on a specified column and get the size.
 print("\n");
 
 #4.1 box and whisker plots. Univariable plot
@@ -100,7 +100,7 @@ for x in range(n):
         ax.yaxis.labelpad = 50
 plt.show()
 """
-# notes: Some display linear relation but majoirty of attribute names are unknown and as noted in the .names doc that some are ratioly related to other attributes.
+# notes: Some display linear relation but majority of attribute names are unknown and as noted in the .names doc that some attributes are ratios to other attributes.
 
 
 # 5
@@ -156,9 +156,9 @@ for name, model in models:
 fig = plt.figure()
 fig.suptitle('Algorithm Comparison')
 ax = fig.add_subplot(111)
-#plt.boxplot(results)
+plt.boxplot(results)
 ax.set_xticklabels(names)
-#plt.show()
+plt.show()
 
 # notes: LDA comes out the highest
 #</eval algorithms>
@@ -188,7 +188,7 @@ for row_index, (input, predictions, Y_validation) in enumerate(zip (X_validation
 # =====
 
 print("Validation set ===");
-url = "dataset/validation_set.csv";   #source of the validation set data, subset of WDBC.csv
+url = "dataset/validation_set.csv";   #source of the validation set data, subset of WDBC.csv, don't need to use if you split the WDBC.csv to train/test the model
 dataset_val = pandas.read_csv(url, header=None);
 
 arrayV2 = dataset_val.values;
